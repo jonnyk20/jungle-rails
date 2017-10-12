@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order #<%= @order.id %></h1>
+      Thank you for your order!
+    <div> Order Details: </div>
+    <ul>
+      <% @line_items.each do |line_item| %>
+        <li><%= line_item.product.name %>(<%= line_item.quantity %>) - <%= humanized_money_with_symbol line_item.item_price_cents %> </li>
+      <% end %>
+    </ul>
+    <div>
+      Order Total: <%= humanized_money_with_symbol (@order.total_cents/100) %>
+    </div>
+  </body>
+</html>
