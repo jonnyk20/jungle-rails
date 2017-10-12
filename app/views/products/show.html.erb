@@ -27,9 +27,19 @@
     </div>
 
     <div class="row">
-      <div> Reviews </div>
-      <%= render @reviews %>
-
+      <div class="col-md-12">
+        <h3> Reviews </h3>
+        <table class="table table-bordered">
+          <thead>
+            <th>Rating</th>
+            <th>Reviewer</th>
+            <th>Review</th>
+          </thead>
+          <tbody>
+            <%= render @reviews %>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </article>
