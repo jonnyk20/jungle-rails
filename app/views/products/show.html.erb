@@ -26,6 +26,18 @@
       </div>
     </div>
 
+    <div class="row">
+      <div> Reviews </div>
+      <% @reviews.each do |review| %>
+        <div>
+          Commenter: <%= review.user.name %>
+          Comment: <%= review.description %>
+          <hr/>
+        </div>
+      <% end %>
+    </div>
+
   </article>
+
 
 </section>
