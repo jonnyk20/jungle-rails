@@ -1,11 +1,8 @@
 class CategoriesController < ApplicationController
-  before_filter :authorize
-  def new
+  def show
+    @category = Category.find(params[:id])
+    @products = @category.products.order(created_at: :desc)
   end
-
-  def create
-  end
-
   def index
     @categories = Category.all.order(created_at: :desc)
   end

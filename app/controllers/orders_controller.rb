@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_filter :authorize
   def show
     @order = Order.find(params[:id])
+    @line_items = @order.line_items.order(created_at: :desc)
   end
 
   def create
