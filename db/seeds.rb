@@ -132,11 +132,21 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-User.create(
-  name: "test",
-  email: "test@test.com",
-  password: "test"
-)
+User.create([
+  {
+    name: "test",
+    email: "test@test.com",
+    password: "test",
+    password_confirmation: "test"
+},
+  {
+    name: "test2",
+    email: "test2@test2.com",
+    password: "test2",
+    password_confirmation: "test2"
+  }
+])
+
 
 Review.create(
   user_id: 1,
@@ -150,6 +160,13 @@ Review.create(
   product_id: 2,
   description: 'I love this',
   rating: 5
+)
+
+Review.create(
+  user_id: 2,
+  product_id: 1,
+  description: 'This is ok',
+  rating: 3
 )
 
 puts "DONE!"

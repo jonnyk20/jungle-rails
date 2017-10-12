@@ -30,8 +30,9 @@
       <div> Reviews </div>
       <% @reviews.each do |review| %>
         <div>
-          Commenter: <%= review.user.name %>
-          Comment: <%= review.description %>
+          <span class="rating"> [ <%= review.rating %> ] </span>
+          <span class="comment-user text-info"><%= review.user.name %></span>
+          <span class="comment-description">: <%= review.description %> </span>
           <hr/>
         </div>
       <% end %>
