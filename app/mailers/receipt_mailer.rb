@@ -3,6 +3,6 @@ class ReceiptMailer < ApplicationMailer
   def receipt_email(order)
     @order = order
     @line_items = @order.line_items.order(created_at: :desc)
-    mail(from: 'no-reply@jungle.com',to: 'aliyazdani82@gmail.com', subject: 'Receipt: Order -'+@order.id.to_s)
+    mail(from: 'no-reply@jungle.com',to: 'jonnyk20@gmail.com', subject: 'Receipt: Order -'+@order.id.to_s)
   end
 end

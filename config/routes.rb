@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, except: [:destroy, :update, :edit]
   end
-
+  
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
     # This route sends requests to our naked url to the *cool* action in the *gif* controller.
     # root to: 'gif#cool'
     
