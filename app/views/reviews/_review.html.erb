@@ -2,4 +2,16 @@
   <td class="rating"> [ <%= review.rating %> ] </td>
   <td class="comment-user text-info"><%= review.user.name %></td>
   <td class="comment-description"><%= review.description %> </td>
+  <td>
+  <% if !current_user || (current_user.id != review.user.id) %>
+    x
+  <% else %>
+    <%= 
+        link_to 'Delete', [@product, review],
+        method: :delete,
+        class: 'btn btn-danger',
+        data: { confirm: 'Are you sure?' }
+    %>
+    <% end %>
+  </td>
 </tr>

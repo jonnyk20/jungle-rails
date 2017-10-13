@@ -27,28 +27,43 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
-        <h3> Reviews </h3>
+    <div class="col-md-12">
+
+    <h3> Reviews </h3>
+
+    
         <table class="table table-bordered">
           <thead>
             <th>Rating</th>
             <th>Reviewer</th>
             <th>Review</th>
+            <th></th>
           </thead>
           <tbody>
             <%= render @reviews %>
           </tbody>
         </table>
+
+
+      <% if current_user %>
+        <%= form_for [@product, @review] do |f| %>
+          <%=f.label :rating %>
+          <%= f.select(:rating, [1, 2, 3, 4, 5], {selected: 3}) %>
+          <%=f.label :description %>
+          <%=f.text_area :description %>
+          <%= f.submit "Submit" %>
+        <% end %>
+      <% else %>
+        <%= link_to 'Login', '/login' %> or <%= link_to 'Signup', '/signup' %> to leave a review
+      <% end %>
+
+
       </div>
     </div>
 
-    <%= form_for [@product, @review] do |f| %>
-      <%=f.label :rating %>
-      <%= f.select(:rating, [1, 2, 3, 4, 5], {selected: 3}) %>
-      <%=f.label :description %>
-      <%=f.text_area :description %>
-      <%= f.submit "Submit" %>
-    <% end %>
+
+
+
 
   </article>
 </section>
